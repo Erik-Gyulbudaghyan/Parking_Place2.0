@@ -1,0 +1,20 @@
+class User:
+
+    def __init__(self, FirstName, Lastname, Phone, ParkingPlace, PlaceID, Time, Price):
+        pass
+
+    def getpersonalinfo(self):
+        pass
+
+    def placeinfo(self):
+        pass
+    
+    def parkingpriceinfo(self):
+        pass
+    
+def main():
+    
+    
+    
+   
+main()
