@@ -1,20 +1,84 @@
+import json
+
 class User:
 
-    def __init__(self, FirstName, Lastname, Phone, ParkingPlace, PlaceID, Time, Price):
-        pass
 
-    def getpersonalinfo(self):
-        pass
+    def getParkingInfo():
+        with open("parking.json") as data_file:
+            ParkingPlace = json.load(data_file)
+            return ParkingPlace
 
-    def placeinfo(self):
-        pass
-    
-    def parkingpriceinfo(self):
-        pass
-    
-def main():
-    
-    
-    
-   
-main()
+    def loadUsedPlaceInfo():
+        with open("usedPlace.json") as data_file:
+            usedPlace = json.load(data_file)
+            return usedPlace
+
+
+    def getLoginData(self):
+        log = input("choose between user/manager: ")
+        user = "user"
+        manager = "manager"
+        if log == user:
+            print(user)
+        elif log == manager:
+            print(manager)
+        return log
+
+    def __init__(self):
+        self.FullName = []
+        self.phone = []
+        self.email = []
+
+    def getUserInfo(self):
+        First = input("Please write your Name: ")
+        Last = input("please write your Surname: ")
+        self.FullName = First + Last
+        print(self.FullName)
+        self.phone = input("Please Write your Phone Number: ")
+        print(self.phone)
+        self.email = self.FullName + "email.com"
+        print(self.email)
+
+    def jsonUse():
+        with open("parking.json") as data_file:
+            file = json.load(data_file)
+            PlaceID = file['parking_place']['parking_ID']
+            TimeRange = file['parking_place']['Time_range']
+            return PlaceID, TimeRange
+
+    def getPlaceID(PlaceID):
+        ID = input("Please write your Parking Place ID: ")
+        while True:
+            if ID in PlaceID:
+                return ID
+            else:
+                ID = input("Your input is wrong please try again: ")
+
+    def getTimeRange(TimeRange):
+        Time = input("Please write yout Time Range: ")
+        while True:
+            if Time in TimeRange:
+                return Time
+            else:
+                Time = input("Your input is wrong please try again: ")
+
+    def SaveInfo(self, PlaceID, TimeRange, initialUsedPlaceData):
+        user_data = {
+            "place": PlaceID,
+            "duration": TimeRange
+        }
+
+        initialUsedPlaceData["used_place"] = user_data
+
+        with open("usedPlace.json", 'w') as file:
+            file.write(json.dumps(initialUsedPlaceData))
+
+    def main():
+        while True:
+            ID = getPlaceID
+            Time = getTimeRange
+            if ID == True and Time == True:
+                user_data = SaveInfo
+                
+
+    main()
