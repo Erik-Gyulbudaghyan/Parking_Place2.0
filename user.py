@@ -1,18 +1,18 @@
 import json
 
 class User:
+    pass
 
+class Parking:
 
-    @classmethod
-    def jsonUse(cls):
+    def jsonUse(self):
         with open("parking.json") as data_file:
             file = json.load(data_file)
             PlaceID = file['parking_place']['parking_ID']
             TimeRange = file['parking_place']['Time_range']
             return PlaceID, TimeRange
 
-    @staticmethod
-    def getloginData():
+    def getloginData(self):
         log = input("choose between user/manager: ")
         user = "user"
         manager = "manager"
@@ -37,8 +37,7 @@ class User:
         self.gender = Gender
         print(self.FullName, self.email, self.phone, self.age, self.gender)
 
-    @classmethod
-    def loadAskForPlace(cls, initialParkPlaceData):
+    def askForPlace(self, initialParkPlaceData):
         place_code = initialParkPlaceData["parking_place"]["parking_ID"]
         print(place_code)
         current_place = input("Choose your parking place: ")
