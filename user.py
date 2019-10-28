@@ -1,16 +1,6 @@
 import json
 
 class User:
-    pass
-
-class Parking:
-
-    def jsonUse(self):
-        with open("parking.json") as data_file:
-            file = json.load(data_file)
-            PlaceID = file['parking_place']['parking_ID']
-            TimeRange = file['parking_place']['Time_range']
-            return PlaceID, TimeRange
 
     def getloginData(self):
         log = input("choose between user/manager: ")
@@ -22,20 +12,35 @@ class Parking:
             print(manager)
         return log
 
-    def __init__(self, FullName, phone, email, gender, age):
-        self.FullName = FullName
-        self.phone = phone
-        self.email = email
-        self.gender = gender
-        self.age = age
-
-    def getUserInfo(self, FirstName, LastName, phoneNumber, Age, Gender):
-        self.FullName = FirstName + LastName
-        self.email = FirstName + "_" + LastName
+    def __init__(self, FirstName, LastName, phoneNumber, Gender, Age):
+        self.FullName = FirstName + " " + LastName
         self.phone = phoneNumber
-        self.age = Age
+        self.email = FirstName + "_" + LastName + "@email.com"
         self.gender = Gender
-        print(self.FullName, self.email, self.phone, self.age, self.gender)
+        self.age = Age
+        self.ParkingPlace = []
+        self.Time = []
+        self.Price = []
+
+    def getUserPersonalInfo(self):
+        print(self.FullName)
+        print(self.phone)
+        print(self.email)
+        print(self.gender)
+        print(self.age)
+        print("___________")
+
+    def getUserParkingInfo(self,):
+        self.ParkingPlace =
+
+class Parking:
+
+    def jsonUse(self):
+        with open("parking.json") as data_file:
+            file = json.load(data_file)
+            PlaceID = file['parking_place']['parking_ID']
+            TimeRange = file['parking_place']['Time_range']
+            return PlaceID, TimeRange
 
     def askForPlace(self, initialParkPlaceData):
         place_code = initialParkPlaceData["parking_place"]["parking_ID"]
@@ -63,12 +68,15 @@ class Parking:
 
 
 def main():
-    FirstName = input("Please input here your Name: ")
-    LastName = input("Please input here your Surname: ")
-    phoneNumber = input("Please write here your Phone Number: ")
-    Age = input("Please insert here your age: ")
-    Gender = input("Choose your gender (Male\Female): ")
-    return FirstName, LastName, phoneNumber, Age, Gender
+    Us1 = User("Erik", "Gyulbudaghyan","Male", 37493340147)
+    
+    Us1 = getUserPersonalInfo()
+    print(Us1)
 
+    current_place = askForPlace(parkPlace)
+    print(current_place)
+
+    Time = getTimeRange(TimeRange)
+    print(Time)
 
 main()
