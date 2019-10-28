@@ -9,8 +9,7 @@
     "007": "place N7",
     "008": "place N8",
     "009": "place N9",
-    "0010": "place N10",
-    "0011": "place N11"
+    "0010": "place N10"
   },
   "Time_range": {
     "range 0-2": 100,
